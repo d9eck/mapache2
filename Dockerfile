@@ -4,21 +4,21 @@ MAINTAINER Daniel Pez <musikitta@gmail.com>
 
 RUN a2enmod rewrite
 
-ENV MAGENTO_VERSION 2.2.1 \
-    MYSQL_HOST=mpshop-mariadb \
-    MYSQL_ROOT_PASSWORD=MPCm1rysp00 \
-    MYSQL_USER=magento \
-    MYSQL_PASSWORD=MPCm1rysp00 \
-    MYSQL_DATABASE=magento \
-    MAGENTO_LANGUAGE=en_US \
-    MAGENTO_TIMEZONE=Europe/Madrid \
-    MAGENTO_DEFAULT_CURRENCY=EUR \
-    MAGENTO_URL=http://www.marypeckceramics.com \
-    MAGENTO_ADMIN_FIRSTNAME=Admin \
-    MAGENTO_ADMIN_LASTNAME=MaryPeckCeramics \
-    MAGENTO_ADMIN_EMAIL=daniel.co.so@gmail.com \
-    MAGENTO_ADMIN_USERNAME=marypeck \
-    MAGENTO_ADMIN_PASSWORD=MPCm1rysp00
+ENV MAGENTO_VERSION "2.2.1" \
+    MYSQL_HOST="mpshop-mariadb" \
+    MYSQL_ROOT_PASSWORD="MPCm1rysp00" \
+    MYSQL_USER="magento" \
+    MYSQL_PASSWORD="MPCm1rysp00" \
+    MYSQL_DATABASE="magento" \
+    MAGENTO_LANGUAGE="en_US" \
+    MAGENTO_TIMEZONE="Europe/Madrid" \
+    MAGENTO_DEFAULT_CURRENCY="EUR" \
+    MAGENTO_URL="http://www.marypeckceramics.com" \
+    MAGENTO_ADMIN_FIRSTNAME="Admin" \
+    MAGENTO_ADMIN_LASTNAME="MaryPeckCeramics" \
+    MAGENTO_ADMIN_EMAIL="daniel.co.so@gmail.com" \
+    MAGENTO_ADMIN_USERNAME="marypeck" \
+    MAGENTO_ADMIN_PASSWORD="MPCm1rysp00"
 
 RUN rm -rf /var/www/html/*
 RUN cd /tmp && curl https://codeload.github.com/magento/magento2/tar.gz/$MAGENTO_VERSION -o $MAGENTO_VERSION.tar.gz && tar xvf $MAGENTO_VERSION.tar.gz && mv magento2-$MAGENTO_VERSION/* magento2-$MAGENTO_VERSION/.htaccess /var/www/html
