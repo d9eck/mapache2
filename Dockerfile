@@ -1,6 +1,6 @@
-FROM alexcheng/apache2-php7
+FROM d9eck/apache-php7
 
-MAINTAINER Fu Cheng <alexcheng1982@gmail.com>
+MAINTAINER Daniel Pez <musikitta@gmail.com>
 
 RUN a2enmod rewrite
 
