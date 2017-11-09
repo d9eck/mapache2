@@ -13,7 +13,7 @@ ENV MAGENTO_VERSION 2.2.1 \
     MAGENTO_LANGUAGE=en_US \
     MAGENTO_TIMEZONE=Europe/Madrid \
     MAGENTO_DEFAULT_CURRENCY=EUR \
-    MAGENTO_URL=www.marypeckceramics.com \
+    MAGENTO_URL=http://www.marypeckceramics.com/ \
     MAGENTO_ADMIN_FIRSTNAME=Admin \
     MAGENTO_ADMIN_LASTNAME=MaryPeckCeramics \
     MAGENTO_ADMIN_EMAIL=daniel.co.so@gmail.com \
