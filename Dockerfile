@@ -13,7 +13,7 @@ ENV MYSQL_DATABASE "magento"
 ENV MAGENTO_LANGUAGE "en_US"
 ENV MAGENTO_TIMEZONE "Europe/Madrid"
 ENV MAGENTO_DEFAULT_CURRENCY "EUR"
-ENV MAGENTO_URL "www.marypeckceramics.com"
+ENV MAGENTO_URL "http://www.marypeckceramics.com/"
 ENV MAGENTO_ADMIN_FIRSTNAME "Admin"
 ENV MAGENTO_ADMIN_LASTNAME "MaryPeckCeramics"
 ENV MAGENTO_ADMIN_EMAIL "daniel.co.so@gmail.com"
@@ -40,6 +40,7 @@ RUN requirements="libpng12-dev libmcrypt-dev libmcrypt4 libcurl3-dev libfreetype
     && docker-php-ext-install soap \
     && requirementsToRemove="libpng12-dev libmcrypt-dev libcurl3-dev libpng12-dev libfreetype6-dev libjpeg-turbo8-dev" \
     && apt-get purge --auto-remove -y $requirementsToRemove
+RUN apt-get install -y --no-install-recommends rsync git
 
 COPY ./auth.json /var/www/.composer/
 RUN chsh -s /bin/bash www-data
@@ -63,6 +64,9 @@ RUN echo "memory_limit=1024M" > /usr/local/etc/php/conf.d/memory-limit.ini
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 WORKDIR /var/www/html
+
+VOLUME /var/www/html
+VOLUME /etc/apache2
 
 # Add cron job
 ADD crontab /etc/cron.d/magento2-cron
