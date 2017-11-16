@@ -64,9 +64,6 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 WORKDIR /var/www/html
 
-VOLUME /var/www/html/var
-VOLUME /var/www/html/pub
-
 # Add cron job
 ADD crontab /etc/cron.d/magento2-cron
 RUN chmod 0644 /etc/cron.d/magento2-cron
